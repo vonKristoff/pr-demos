@@ -1,0 +1,20 @@
+/**
+ * BUTTONS and Interactions
+ * SYNTAX
+ * .ui give interactable basics
+ * a.ui.is-link describes what kind of major style to follow
+ * .ui--underline delivers the animation type
+ */
+ 
+[class^="ui"]
+  cursor pointer
+  text-decoration none
+  transition all .3s
+  width max-content    
+  position relative
+  user-select none
+  &.has-debounce
+    pointer-events none
+    &:hover
+      filter greyscale(1)
+  

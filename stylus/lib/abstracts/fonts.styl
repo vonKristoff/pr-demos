@@ -1,0 +1,19 @@
+_fontsource = "fonts"
+
+fontface(name, size="Regular")
+  @font-face 
+    font-family name + '-' + size
+    src url(_fontsource + '/' + name '-' size + '.eot')
+    src url(_fontsource + '/' + name '-' size + '.woff') format('woff'), url(_fontsource + '/' + name '-' size + '.ttf') format('truetype'), url(_fontsource + '/' + name '-' size + '.svg') format('svg')
+    font-weight normal
+    font-style normal
+
+/**
+ * Declare custom Font
+ * fontface("Roboto-Light")
+**/
+fontface("Roboto")
+
+$font-header = monospace
+$font-paragraph = sans-serif
+$font-default = "Roboto-Regular"

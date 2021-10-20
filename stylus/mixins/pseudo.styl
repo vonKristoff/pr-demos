@@ -1,0 +1,42 @@
+/**
+ * before and after pseudo blocks
+ */
+
+before()
+  &:before 
+    content ''
+    position absolute
+    top 0
+    wh(100%, 100%)
+    {block}
+
+after()
+  &:after 
+    content ''
+    position absolute
+    top 0
+    wh(100%, 100%)
+    {block}
+
+onAfter()
+  &:hover
+    &:after
+      {block}
+onBefore()
+  &:hover
+    &:before
+      {block}
+
+/**
+* Hide element completely, but still keep access via the DOM
+**/ 
+
+offscreen()
+  border 0
+  clip rect(0 0 0 0)
+  height 1px
+  margin -1px
+  overflow hidden
+  padding 0
+  position absolute
+  width 1px

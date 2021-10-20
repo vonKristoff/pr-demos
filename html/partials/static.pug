@@ -1,0 +1,8 @@
++section({id:"#test", content: "columns", background: true})  
+  - let h = {head: "<my-header>", body: "<body-component>", foot: "<footer-list>"}
+  +block("head")
+    | #{h.head}
+  +block
+    | #{h.body}
+  +block("footer")
+    | #{h.foot}

@@ -1,0 +1,19 @@
+/**
+ * INTERACTIONS
+ */
+
+.ui
+  &--pulse
+    animation pulse 2s infinite
+  &--pulse-pseudo
+    &:before
+      position absolute
+      content ''
+      width 100%
+      height 100%
+      border-radius .5em
+      animation pulse 2s infinite
+  &--pop
+    &:hover
+      div
+        transform scale(0.85) rotate(-2deg)

@@ -1,0 +1,52 @@
+{
+  "name": "template",
+  "version": "0.0.1",
+  "license": "MIT",
+  "devDependencies": {
+    "buble": "latest",
+    "cpy-cli": "latest",
+    "eslint": "latest",
+    "pug": "latest",
+    "pug-cli": "latest",
+    "nib": "latest",
+    "npm-run-all": "latest",
+    "onchange": "latest",
+    "parallelshell": "latest",
+    "renamer": "latest",
+    "rollup": "latest",
+    "rollup-plugin-buble": "latest",
+    "rollup-plugin-commonjs": "latest",
+    "rollup-plugin-eslint": "latest",
+    "rollup-plugin-node-resolve": "latest",
+    "rollup-plugin-replace": "latest",
+    "rollup-plugin-uglify": "latest",
+    "rollup-plugin-html": "latest",
+    "rollup-plugin-json": "latest",
+    "stylus": "latest",
+    "purify-css": "latest",
+    "browser-sync": "latest"
+  },
+  "scripts": {
+    "firstrun": "./node_modules/.bin/eslint --init",
+    "start": "NODE_ENV=development npm-run-all --parallel server:watch listen:*",
+    "package": "NODE_ENV=production rollup --config rollup.config.package.js",
+    "production": "NODE_ENV=production rollup -c",
+    "server:watch": "browser-sync start -s 'public' --port 3000 --cors -f 'public'",
+    "listen:app": "onchange 'js/**/*.js' -e 'js/modules/*.js' -- npm run compile:bundle",
+    "listen:modules": "onchange 'js/modules/*.js' -- rollup -c -i {{changed}} -o public/js/modules/{{changed}}",
+    "listen:views": "onchange 'html/views/**/*.pug' -- npm run compile:pages",
+    "listen:templates": "onchange html/components/**/*.pug -- npm run compile:templates",
+    "listen:stylus": "onchange 'stylus/**/*.styl' -- npm run compile:css",
+    "compile:bundle": "rollup -c",
+    "compile:css": "stylus -m --compress -u nib stylus/style.styl -o public/style.css",
+    "compile:critical": "stylus -compress -u nib stylus/critical.styl -o html/partials/critical.css",
+    "build:css": "stylus --compress -u nib stylus/style.styl -o stylus/style.css",
+    "postbuild:css": "purifycss stylus/style.css public/*.html --info --out public/style.css",
+    "compile:templates": "pug html/components -o js/components/templates/",
+    "compile:pages": "pug html/views -H -o public/"
+  },
+  "dependencies": {
+    "fg-loadcss": "latest",
+    "vue": "latest"
+  }
+}

@@ -1,0 +1,14 @@
+/**
+ * FontAwesome icons
+ */
+icon(code)
+  &:before
+    content '\' + code
+
+[class*="fa--"]
+  font-family FontAwesome
+  font-size 1em
+
+.fa
+  &--check
+    icon("f00c")

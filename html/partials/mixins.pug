@@ -1,0 +1,21 @@
+include meta
+
+mixin element(name, type, bg)
+  - let background = (bg) ? " has-background-img" : ""
+  div(class= `${name}--${type}${background}`)
+    block
+
+mixin section({id="", base="normal", layout="", content="", background=false})
+  section(id= id)
+    +element("base", base)
+      +element("layout", layout)
+        +element("content", content, background)
+          block
+
+mixin block(type="body")
+  if(type === "head")
+    header.block--head
+      block
+  else
+    +element("block", type)
+      block

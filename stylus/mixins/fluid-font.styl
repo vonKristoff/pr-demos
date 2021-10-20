@@ -1,0 +1,11 @@
+/**
+* Fluid Font
+**/
+
+_minFont = 16
+_maxFont = 26
+_minWidth = 320
+_maxWidth = 1280
+_difference = _maxFont - _minFont
+fluid()
+  font-size "calc(%s * ((100vw - %spx) / %s) + %s)" % (_maxFont _minWidth _maxWidth _minFont)
