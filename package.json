@@ -3,28 +3,28 @@
   "version": "0.0.1",
   "license": "MIT",
   "devDependencies": {
+    "browser-sync": "latest",
     "buble": "latest",
     "cpy-cli": "latest",
     "eslint": "latest",
-    "pug": "latest",
-    "pug-cli": "latest",
     "nib": "latest",
     "npm-run-all": "latest",
     "onchange": "latest",
     "parallelshell": "latest",
+    "pug": "latest",
+    "pug-cli": "latest",
+    "purify-css": "latest",
     "renamer": "latest",
     "rollup": "latest",
     "rollup-plugin-buble": "latest",
     "rollup-plugin-commonjs": "latest",
     "rollup-plugin-eslint": "latest",
+    "rollup-plugin-html": "latest",
+    "rollup-plugin-json": "latest",
     "rollup-plugin-node-resolve": "latest",
     "rollup-plugin-replace": "latest",
     "rollup-plugin-uglify": "latest",
-    "rollup-plugin-html": "latest",
-    "rollup-plugin-json": "latest",
-    "stylus": "latest",
-    "purify-css": "latest",
-    "browser-sync": "latest"
+    "stylus": "latest"
   },
   "scripts": {
     "firstrun": "./node_modules/.bin/eslint --init",
@@ -46,6 +46,7 @@
     "compile:pages": "pug html/views -H -o public/"
   },
   "dependencies": {
+    "camera-controls": "^1.33.1",
     "fg-loadcss": "latest",
     "vue": "latest"
   }
